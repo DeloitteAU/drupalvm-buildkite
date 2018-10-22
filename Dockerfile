@@ -12,7 +12,7 @@ COPY drupal-vm-playbook-overrides.yml /etc/ansible/drupal-vm/local.config.yml
 RUN echo deb https://apt.buildkite.com/buildkite-agent stable main > /etc/apt/sources.list.d/buildkite-agent.list && \
     apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 32A37959C2FA5C3C99EFBC32A79206696452D198 && \
     apt-get update && \
-    apt-get install -y buildkite-agent iptables php7.1-bz2 && \
+    apt-get install -y buildkite-agent php7.1-bz2 && \
     ansible-playbook /etc/ansible/drupal-vm/provisioning/playbook.yml && \
     rm -rf /var/lib/apt/lists/* && \
     sudo -u buildkite-agent -H bash -c 'composer global require hirak/prestissimo'
