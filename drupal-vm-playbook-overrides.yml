@@ -1,0 +1,17 @@
+# Copied and adapted from https://github.com/geerlingguy/drupal-vm/blob/master/provisioning/docker/vars/docker-hub-overrides.yml
+---
+hostname_configure: false
+firewall_enabled: false
+installed_extras:
+  - adminer
+  - drush
+  - mailhog
+  - pimpmylog
+  # Adding selenium so it gives us google-chrome.
+  - selenium
+
+# Don't build or install Drupal inside the container.
+drupal_build_makefile: false
+drupal_build_composer: false
+drupal_build_composer_project: false
+drupal_install_site: false
